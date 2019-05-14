@@ -99,7 +99,7 @@
                 </header>
                 <!--END PAGE HEADER -->
                 <!--START PAGE CONTENT -->
-                @include('layouts._flash')
+                @include('layouts.flash')
                 @yield('content')
                 <!--END PAGE CONTENT -->
             </div>

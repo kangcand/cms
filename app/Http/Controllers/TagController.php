@@ -67,7 +67,7 @@ class TagController extends Controller
     public function destroy($id)
     {
         $tag2 = Tag::findOrFail($id);
-        $tag = Tag::findOrFail($id)->delete();
+        if (!Tag::destroy($id)) return redirect()->back();
         Session::flash("flash_notification", [
             "level" => "success",
             "message" => "Berhasil menghapus <b>"

@@ -67,7 +67,7 @@ class KategoriController extends Controller
     public function destroy($id)
     {
         $kategori2 = Kategori::findOrFail($id);
-        $kategori = Kategori::findOrFail($id)->delete();
+        if (!Kategori::destroy($id)) return redirect()->back();
         Session::flash("flash_notification", [
             "level" => "success",
             "message" => "Berhasil menghapus <b>"

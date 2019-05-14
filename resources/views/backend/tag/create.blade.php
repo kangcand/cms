@@ -14,7 +14,12 @@
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="">Nama Tag</label>
-                        <input type="text" name="nama_tag" class="form-control" required>
+                        <input type="text" name="nama_tag" class="form-control @error('nama_tag') is-invalid @enderror" required>
+                        @error('nama_tag')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
             </div>
             <div class="modal-footer">

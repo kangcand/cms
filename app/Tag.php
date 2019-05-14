@@ -12,7 +12,12 @@ class Tag extends Model
 
     public function artikel()
     {
-        return $this->belongsToMany('App\Artikel', 'artikel_tag', 'id_tag', 'id_artikel');
+        return $this->belongsToMany(
+            'App\Artikel',
+            'artikel_tag',
+            'id_tag',
+            'id_artikel'
+        );
     }
 
     public static function boot()
@@ -37,5 +42,10 @@ class Tag extends Model
                 return false;
             }
         });
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

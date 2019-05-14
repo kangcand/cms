@@ -11,16 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
+
+// Route Frontend
+Route::group(['prefix' => '/'], function () {
+    Route::get('/', 'FrontendController@index');
+    Route::get('about', 'FrontendController@about');
+    Route::get('blog', 'FrontendController@blog');
+    Route::get('blog/{artikel}', 'FrontendController@singleblog');
+    Route::get('blog-tag/{tag}', 'FrontendController@blogtag');
+    Route::get('blog-kategori/{kategori}', 'FrontendController@blogkategori');
+});
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 // Route Backend
 Route::group(
-    ['prefix' => 'admin','middleware'=>['auth']],
+    ['prefix' => 'admin', 'middleware' => ['auth']],
     function () {
         Route::get('/', function () {
             return view('backend.index');

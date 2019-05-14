@@ -12,10 +12,15 @@
                 @csrf
                 <input type="hidden" name="_method" value="PATCH"> 
                 <div class="modal-body">  
-                     <div>
-                         <label for="">Nama Tag</label>
-                         <input type="text" class="form-control" value="{{ $data->nama_tag }}" name="nama">
-                     </div>
+                     <div class="form-group">
+                        <label for="">Nama Tag</label>
+                        <input type="text" value="{{ $data->nama_tag }}" name="nama_tag" class="form-control @error('nama_tag') is-invalid @enderror" required>
+                        @error('nama_tag')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
                  </div>
                  <div class="modal-footer">
                      <button type="button" class="btn btn-outline btn-rounded btn-danger btn-sm" data-dismiss="modal"><i

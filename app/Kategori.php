@@ -7,7 +7,7 @@ use Session;
 
 class Kategori extends Model
 {
-    protected $fillable = ['nama_kategori','slug'];
+    protected $fillable = ['nama_kategori', 'slug'];
     public $timestamps = true;
 
     public function artikel()
@@ -37,5 +37,10 @@ class Kategori extends Model
                 return false;
             }
         });
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

@@ -23,6 +23,16 @@ class Artikel extends Model
     }
     public function tag()
     {
-        return $this->belongsToMany('App\Tag', 'artikel_tag', 'id_artikel', 'id_tag');
+        return $this->belongsToMany(
+            'App\Tag',
+            'artikel_tag',
+            'id_artikel',
+            'id_tag'
+        );
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

@@ -9,45 +9,7 @@
 <script src="{{ asset('assets/backend/assets/vendor/datatables.net/js/jquery.dataTables.js')}}"></script>
 <script src="{{ asset('assets/backend/assets/vendor/datatables.net-bs4/js/dataTables.bootstrap4.js')}}"></script>
 <script src="{{ asset('assets/backend/assets/js/components/datatables-init.js')}}"></script>
-<script src="{{ asset('assets/backend/assets/js/components/sweetalert2.js')}}"></script>
-<script src="{{ asset('assets/backend/assets/vendor/sweetalert2/dist/sweetalert2.min.js')}}"></script>
-<script>
-    $('#confirm_delete').on('submit', function (event) {
-        event.preventDefault();
-        swal({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!',
-            cancelButtonText: 'No, cancel!',
-            confirmButtonClass: 'btn btn-success',
-            cancelButtonClass: 'btn btn-danger',
-            buttonsStyling: false,
-            reverseButtons: true
-        }).then((result) => {
-            if (result.value) {
-                swal(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
-            } else if (
-                // Read more about handling dismissals
-                result.dismiss === swal.DismissReason.cancel
-            ) {
-                swal(
-                    'Cancelled',
-                    'Your imaginary file is safe :)',
-                    'error'
-                )
-            }
-        })
-    });
 
-</script>
 @endsection
 
 @section('content')
@@ -89,8 +51,8 @@
                                             class="btn btn-rounded btn-outline-warning" title="Edit"><i
                                                 class="la la-pencil"></i>
                                         </button>
-                                        <button id="delete" title="Hapus" class="btn btn-rounded btn-outline-danger"><i
-                                                class=" zmdi zmdi-delete zmdi-hc-fw"></i>
+                                        <button type="submit" title="Hapus" class="btn btn-rounded btn-outline-danger"><i
+                                                class="zmdi zmdi-delete zmdi-hc-fw"></i>
                                         </button>
                                     </form>
                                 </td>
